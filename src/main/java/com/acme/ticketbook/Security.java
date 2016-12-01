@@ -17,7 +17,6 @@ public class Security {
 		return s;
 	}
 	
-	
 	public static void validate(String s) {
 		for(char c : s.toCharArray()) {
 			if(c == '<') {
