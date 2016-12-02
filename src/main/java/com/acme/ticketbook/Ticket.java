@@ -25,6 +25,9 @@ public class Ticket {
 	private static int count = 10000;
 	public static Ticket ANONYMOUS = new Ticket( "Anonymous", "Nowhere", "0000-0000-0000-0000" );
 
+	
+	
+	
 	public Ticket(String name, String city, String cc ) {
 		initialize();
 		setName( name );
