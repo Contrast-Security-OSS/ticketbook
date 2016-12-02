@@ -22,6 +22,7 @@ public class Database {
 		}
 		return instance;
 	}
+	
 		
 	private Database() {
 		if ( !initialized ) {

@@ -81,6 +81,7 @@ public class Attacker {
     
     public static void run() {
         long start = System.currentTimeMillis();
+        address = getRandomAddress();
         while( System.currentTimeMillis() - start < 20 * 60 * 1000 ) {   // 20 minutes
             try {
                 long delay = 1 * 1000;   // 10 seconds
@@ -158,4 +159,16 @@ public class Attacker {
     }
 
     
+    private static String getRandomAddress() {
+        StringBuilder sb=new StringBuilder();
+        sb.append( sr.nextInt(256) );
+        sb.append( "." );
+        sb.append( sr.nextInt(256) );
+        sb.append( "." );
+        sb.append( sr.nextInt(256) );
+        sb.append( "." );
+        sb.append( sr.nextInt(256) );
+        return sb.toString();
+    }
+
 }
