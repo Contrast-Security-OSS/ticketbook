@@ -56,13 +56,14 @@
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
 		</dependency>
-		<!-- This seems to override jsp compiler... bad. But otherwise pretty cool.
+		<!-- This seems to override jsp compiler... bad. But otherwise pretty cool. 
+			<dependency> <groupId>net.sf.jsptest</groupId> <artifactId>jsptest-jsp20</artifactId> 
+			<version>0.19</version> </dependency> -->
 		<dependency>
-			<groupId>net.sf.jsptest</groupId>
-			<artifactId>jsptest-jsp20</artifactId>
-			<version>0.19</version>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.5.2</version>
 		</dependency>
-		-->
 	</dependencies>
 
 	<build>

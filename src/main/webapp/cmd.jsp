@@ -6,7 +6,7 @@
 <html>
 
 <%
-	String param = request.getParameter("protocol");
+	String param = request.getParameter("cmd");
 	if (param == null) param = "";
 	
 	// param = ESAPI.encoder().encodeForOS( new UnixCodec(), param);
@@ -36,7 +36,7 @@
 				<div class="panel-body">
 					<form role="form" method="POST" action="cmd.jsp" autocomplete="off">
 						<div class="form-group">
-							<input name="protocol" id="protocol" value="/tmp" class="form-control" placeholder="data">
+							<input name="cmd" id="cmd" value="/tmp" class="form-control" placeholder="data">
 						</div>
 						<button name="submit" type="submit" class="btn btn-warning">Submit</button>
 					</form>
