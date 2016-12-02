@@ -22,6 +22,12 @@
 	        <session-timeout>120</session-timeout>
 	</session-config>
 
+	<!-- Error Configuration -->
+	<error-page>
+	    <exception-type>com.contrastsecurity.agent.plugins.rasp.AttackBlockedException</exception-type >
+	    <location>/security.jsp</location>
+	</error-page>
+
     <security-constraint>
         <web-resource-collection>
             <web-resource-name>Protected Area</web-resource-name>

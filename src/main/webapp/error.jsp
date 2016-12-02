@@ -11,14 +11,13 @@
 
 <body>
 <%@ include file="/menu.jsp" %>
-<font color="red"><H1>Attempted Attack Detected</H1></font>
+<H1>Internal Error</H1>
 
 	<div class="row">
 		<div class="col-md-12">
 			<div class="panel panel-primary">
 				<div class="panel-body">
-An attempted attack was identified and blocked. Details have been logged and may be part of a further investigation.
-Contact <a href="mailto:security@ticketbook.com">security@ticketbook.com</a> to report more information about this attack.
+				An unknown error occurred. Please try again.
 				</div>
 			</div>
 		</div>
