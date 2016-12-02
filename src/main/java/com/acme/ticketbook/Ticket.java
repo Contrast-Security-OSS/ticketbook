@@ -14,28 +14,43 @@ import org.owasp.esapi.crypto.CipherText;
 import org.owasp.esapi.crypto.PlainText;
 import org.owasp.esapi.errors.EncryptionException;
 
-public class Person {
+public class Ticket {
 
 	public String name = "Anonymous";
 	public String city = "Washington-DC";
 	public String creditcard = "";
 	private String ticket = "";
 	private static Key key = null;
-	private static String algorithm = "DES";
+	private static String algorithm = "";
 	private static int count = 10000;
-	public static Person ANONYMOUS;
+	public static Ticket ANONYMOUS = new Ticket( "Anonymous", "Nowhere", "0000-0000-0000-0000" );
 
-	public Person(String name, String city, String cc ) {
+	public Ticket(String name, String city, String cc ) {
 		initialize();
 		setName( name );
 		setCity( city );
 		setCreditCard( cc );
 		setTicket( ""+count++ );
-		Logger.getLogger(Person.class).debug( "Creating Person: " + getName() );
 	}
 	
-	public Person(ServletRequest request) {
-		this( request.getParameter( "name" ), request.getParameter( "city" ), request.getParameter( "cc" ) );
+	public Ticket(ServletRequest request) {
+		initialize();
+		String name = request.getParameter( "name" );
+		String city = request.getParameter( "city" );
+		String cc = request.getParameter( "cc" );
+		setName( name );
+		setCity( city );
+		setCreditCard( cc );
+		setTicket( ""+count++ );
+		Logger.getLogger(Ticket.class).debug( "Created Ticket: " + getName() );
+	}
+
+	public Ticket(String name, String city, String cc, String ticket) {
+		initialize();
+		setName( name );
+		setCity( city );
+		setCreditCard( cc );
+		setTicket( ticket );
 	}
 
 	public String getName() {
@@ -81,6 +96,7 @@ public class Person {
 		sb.append( "    \"name\" : \"" + getName().toUpperCase() + "\",\n" );
 		sb.append( "    \"city\" : \"" + getCity() + "\",\n" );
 		sb.append( "    \"cred\" : \"" + getCreditCard() + "\"\n" );
+		sb.append( "    \"ticket\" : \"" + getTicket() + "\"\n" );
 		sb.append( "  }\n");
 		sb.append( "}\n");
 		return sb.toString();
@@ -88,7 +104,7 @@ public class Person {
 
 	public static void initialize() {
 		try {
-			algorithm = System.getProperty( "algorithm" );
+			algorithm = System.getProperty( "algorithm", "DES" );
 			DESKeySpec keyspec = new DESKeySpec("supersecretpassword".getBytes());
 			SecretKeyFactory keyFactory = SecretKeyFactory.getInstance( algorithm );
 			key = keyFactory.generateSecret(keyspec);
@@ -99,8 +115,10 @@ public class Person {
 
 	private static String encrypt(String str) {
 		try {
+			
 //			CipherText ct = ESAPI.encryptor().encrypt(new PlainText( str ) );
 //			return ct.getBase64EncodedRawCipherText();
+			
 			Cipher cipher = Cipher.getInstance( algorithm );
 			cipher.init(Cipher.ENCRYPT_MODE, key);
 			byte[] encrypted = cipher.doFinal(str.getBytes());

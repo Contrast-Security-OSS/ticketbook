@@ -1,9 +1,9 @@
-<%@page import="com.acme.ticketbook.*"%>
+<%@ page import="com.acme.ticketbook.*"%>
 <%@ page import="java.util.*"%>
 <%@ page import="java.sql.*"%>
 <%@ page import="javax.naming.*"%>
 <%@ page import="javax.naming.directory.*"%>
-<%@page import="org.owasp.esapi.*"%>
+<%@ page import="org.owasp.esapi.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
@@ -11,11 +11,11 @@
 
 <head>
 <title>Architecture</title>
-<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="/ticketbook/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
-<%@ include file="menu.jsp" %>
+<%@ include file="/menu.jsp" %>
 <H1>Architecture</H1>
 <p class="lead">Accessing various backend services and other components</p>  
 
@@ -39,7 +39,7 @@
       new InitialContext(env);
    } catch (Exception e) { out.println( e.getMessage() ); }
 %>
-<%@ include file="footer.jsp" %>
+<%@ include file="/footer.jsp" %>
 </body>
 
 </html>

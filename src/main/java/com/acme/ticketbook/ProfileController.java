@@ -10,31 +10,18 @@ import javax.servlet.http.HttpServletResponse;
 @SuppressWarnings("serial")
 public class ProfileController extends HttpServlet {
 
-	public static String PERSON = "person";
-	public static String VALIDATED = "validated";
+	public static String TICKET = "ticket";
+	public static String CREDITCARD = "creditcard";
 	
-	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
 	}
-	
-	@Override
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String loc = request.getParameter("redir");
-		String fwd = request.getParameter("fwd");
-		if(loc != null) {
-			response.sendRedirect(loc);
-			return;
-		}
-		if(fwd != null) {
-			request.getRequestDispatcher(fwd).forward(request, response);
-		}
-		
-		Security.checkCSRFToken(request);
 		if ( request.getParameter( "name" ) != null ) {
-			Person p = new Person( request );
+			Ticket p = new Ticket( request );
 			TicketService.instance().create( p );
-			request.setAttribute( PERSON, p );
+			request.setAttribute( TICKET, p );
 		}
 		
 		// forward to view
