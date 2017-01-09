@@ -213,8 +213,11 @@ public class Database {
 		Connection conn = getConnection();
 		try {
 			
+			
+			
+			
 			// CONTRAST SQL INJECTION FIX		
-			updateUnsafe("INSERT INTO tickets(name,city,cc,ticket) VALUES('"+t.getName()+"', '"+t.getCity()+"', '"+t.getCreditCard()+"', '"+t.getTicket()+"')");
+		    updateUnsafe("INSERT INTO tickets(name,city,cc,ticket) VALUES('"+t.getName()+"', '"+t.getCity()+"', '"+t.getCreditCard()+"', '"+t.getTicket()+"')");
 			// updateSafe("INSERT INTO tickets(name,city,cc,ticket) VALUES(?,?,?,?)", t.getName(), t.getCity(), t.getCreditCard(), t.getTicket() );
 			
 		} catch( SQLException e ) {
