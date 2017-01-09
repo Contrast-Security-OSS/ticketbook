@@ -212,10 +212,7 @@ public class Database {
 		System.out.println( "Creating " + t.getTicket() + "::" + t.getName() );
 		Connection conn = getConnection();
 		try {
-			
-			
-			
-			
+
 			// CONTRAST SQL INJECTION FIX		
 		    updateUnsafe("INSERT INTO tickets(name,city,cc,ticket) VALUES('"+t.getName()+"', '"+t.getCity()+"', '"+t.getCreditCard()+"', '"+t.getTicket()+"')");
 			// updateSafe("INSERT INTO tickets(name,city,cc,ticket) VALUES(?,?,?,?)", t.getName(), t.getCity(), t.getCreditCard(), t.getTicket() );
