@@ -34,7 +34,6 @@
 		
 		String content = "No content found";
 		if (param != null) {
-			try {
 				BufferedReader reader = new BufferedReader(new FileReader( path ));
 
 				String line = null;
@@ -47,9 +46,6 @@
 				}
 
 				content = stringBuilder.toString();
-			} catch (Exception e) {
-				content = "Error processing document: " + e.getMessage();
-			}
 		}
 	%>
 
