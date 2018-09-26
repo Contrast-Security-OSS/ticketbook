@@ -53,7 +53,7 @@
 						${param.name}</div>
 					<div>XSS 3: wrong encoder: 
 						<%=ESAPI.encoder().encodeForOS( new WindowsCodec(), request.getParameter("name") )%></div>
-					<div>XSS 5: safe: 
+					<div>XSS 4: safe: 
 						<%=ESAPI.encoder().encodeForHTML(request.getParameter("name"))%></div>
 				</div>
 			</div>
