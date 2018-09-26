@@ -31,7 +31,7 @@
 				<div class="panel-body">
 					<form role="form" method="POST" action="xss.jsp" autocomplete="off">
 						<div class="form-group">
-							<input name="name" id="name" value="<c:out value="${param.name}"/>" class="form-control" placeholder='data'>
+							<input name="name" id="name" value="" class="form-control" placeholder='data'>
 						</div>
 						<button name="submit" type="submit" class="btn btn-warning">Submit</button>
 					</form>
@@ -53,12 +53,8 @@
 						${param.name}</div>
 					<div>XSS 3: wrong encoder: 
 						<%=ESAPI.encoder().encodeForOS( new WindowsCodec(), request.getParameter("name") )%></div>
-					<div>XSS 4: disabled escaping: 
-						<c:out value="${param.name}" escapeXml="false" /></div>
 					<div>XSS 5: safe: 
 						<%=ESAPI.encoder().encodeForHTML(request.getParameter("name"))%></div>
-					<div>XSS 6: safe (escape by default): 
-						<c:out value="${param.name}"/></div>
 				</div>
 			</div>
 		</div>
