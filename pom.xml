@@ -73,6 +73,35 @@
 	  <path>/ticketbook</path>
 	</configuration>
        </plugin>
+		<plugin>
+		 <groupId>com.contrastsecurity</groupId>
+		 <artifactId>contrast-maven-plugin</artifactId>
+		 <executions>
+			 <execution>
+				 <id>install-contrast-jar</id>
+				 <goals>
+					<goal>install</goal>
+				 </goals>
+			 </execution>
+			 <execution>
+				<id>verify-with-contrast</id>
+				<phase>post-integration-test</phase>
+				<goals>
+					<goal>verify</goal>
+				</goals>
+			 </execution>
+		 </executions>
+		 <configuration>
+			 <username>mark.lacasse@acme.local</username>
+			 <apiKey>8BLqHXPqUnTj1SO9</apiKey>
+			 <serviceKey>G2APNG86CRJNN8SH</serviceKey>
+			 <apiUrl>http://badkarma.acme.local:8080/Contrast/api</apiUrl>
+			 <orgUuid>3c41a8de-972e-449a-90f8-ae5224834836</orgUuid>
+			 <appName>TicketBook</appName>
+			 <serverName>Test_Server</serverName>
+			 <minSeverity>High</minSeverity>
+		 </configuration>
+		</plugin>
     </plugins>
   </build>
 </project>
