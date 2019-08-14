@@ -11,6 +11,7 @@
 			<li><a href="${pageContext.request.contextPath}/request.jsp">Request</a></li>
 			<li><a href="${pageContext.request.contextPath}/response.jsp">Response</a></li>
 			<li><a href="${pageContext.request.contextPath}/hpp.jsp">HPP</a></li>
+			<li><a href="${pageContext.request.contextPath}/ssrf.jsp">SSRF</a></li>
 			<li><a href="${pageContext.request.contextPath}/xxe.jsp">XXE</a></li>
 			<li><a href="${pageContext.request.contextPath}/xss.jsp">XSS</a></li>
 			<!--<li><a href="${pageContext.request.contextPath}/cmd.jsp">CMD</a></li>-->
